@@ -3,7 +3,6 @@ import { getUserData } from '../navbar/service/navbarService'
 import { withRouter } from 'react-router-dom';
 import Contexts from '../../context/UserDataAfterLogin'
 import Profile from '../userProfile/profile'
-import ReactTooltip from 'react-tooltip';
 import {
    Collapse,
    Navbar,
@@ -14,50 +13,27 @@ import {
 } from "reactstrap";
 
 import {
-   Home,
-   Settings,
    User,
 } from "react-feather";
 
 
 class ThemeNavbar extends Component {
-   handleClick = e => {
-      this.props.toggleSidebarMenu("open");
-   };
+  
    constructor(props) {
-      super(props);
-
-      this.toggle = this.toggle.bind(this);
+      super(props); 
       this.state = {
          isOpen: false,
-         name: '',
-         tokenLog: props,
-         title: '',
-         image: '',
-         userFirstName: '',
-         userLastName: '',
-         appsDetails: [],
-         appName: '',
-         app: '',
-         statusCode: true,
-         role: '',
          userDetails: '',
          showPro: false
       };
    }
-   toggle() {
-      this.setState({
-         isOpen: !this.state.isOpen
-      });
-   }
+  
    componentDidMount() {
       this.getUserDetails();
 
    }
    getUserDetails = () => {
-
       getUserData().then(userData => {
-         console.log(userData)
          this.setState({
             userDetails: userData,
          });
