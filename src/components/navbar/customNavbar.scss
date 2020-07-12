@@ -1,0 +1,43 @@
+.navbar{
+    .apps.dropdown-item {
+        display: inline-flex;
+        width: min-content;
+     }
+     .square-1 {
+        height: 80px;
+        width: 80px;
+        border-radius: 20px;
+        
+         padding-left: 0.9rem;
+        padding-top: 1rem;
+        font-size: large;
+        
+      }
+   
+      .square-2 {
+        height: 80px;
+        width: 80px;
+        border-radius: 20px;
+        background-color:#6e1332;
+         padding-left: 1.9rem;
+        padding-top: 1.3rem;
+        font-size: large;
+        
+      }
+      
+      .dropdown-menu{
+        min-width: 17rem;
+     }
+      .dropdown-popup-menu {
+        padding-left: 0.4rem;
+        padding-top: 0.1rem;
+      }
+      .appbar-buttons {
+         display: flex;
+      }
+     
+      .photo{
+        height: 60px;
+        width: 60px;
+      }
+}
