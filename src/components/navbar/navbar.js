@@ -13,34 +13,16 @@ import {
 } from "reactstrap";
 
 import {
-   User,
+   User,Home
 } from "react-feather";
 
 
 class ThemeNavbar extends Component {
-  
-   constructor(props) {
-      super(props); 
-      this.state = {
-         isOpen: false,
-         userDetails: '',
-         showPro: false
-      };
-   }
-  
-   componentDidMount() {
-      this.getUserDetails();
 
+   static contextType = Contexts
+   state = {
+      showPro: false
    }
-   getUserDetails = () => {
-      getUserData().then(userData => {
-         this.setState({
-            userDetails: userData,
-         });
-      })
-
-   }
-
 
    openDashboard = () => {
       this.props.history.push("/")
@@ -51,18 +33,19 @@ class ThemeNavbar extends Component {
       })
 
    }
-
+   profilePage =() =>{
+      this.props.history.push('/profile')
+   }
+   openDashboard =() =>{
+      this.props.history.push('/dashboard')
+   }
    render() {
       var { userprofile } = this.props;
       const { showPro } = this.state;
       if (showPro) {
          userprofile = (
             <div style={{ paddingTop: '12rem' }}>
-
-               <Contexts.Provider value={this.state.userDetails} >
-                  <Profile />
-               </Contexts.Provider>
-
+               <Profile />
             </div>
          )
       }
@@ -73,30 +56,32 @@ class ThemeNavbar extends Component {
                <div className="container-fluid px-0" >
                   <div className="navbar-header">
                      <div style={{ color: 'white' }}>
-                        Hi , {this.state.userDetails.firstName}
+                        Hi , {this.context.firstName}
                      </div>
-
                   </div>
                   <div className="appbar-buttons">
                      <div className="navbar-container-1">
-
                         <Collapse isOpen={this.state.isOpen} navbar>
                            <Nav className="ml-auto float-right" navbar style={{ margin: 0 }}>
-
                               <UncontrolledDropdown nav inNavbar className="pr-1">
-                              
                                  <DropdownToggle nav onClick={this.openProfile} >
-                                       <User size={30} style={{ color: 'white' }} />                                 
+                                    <User size={30} style={{ color: 'white' }} />
                                     {userprofile}
                                  </DropdownToggle>
-                                
                               </UncontrolledDropdown>
-                              
+                              <UncontrolledDropdown nav inNavbar className="pr-1">
+                                 <DropdownToggle onClick={this.profilePage} >
+                                    <User size={30} style={{ color: 'white' }} />    
+                                 </DropdownToggle>
+                              </UncontrolledDropdown>
+                              <UncontrolledDropdown nav inNavbar className="pr-1">
+                                 <DropdownToggle onClick={this.openDashboard} >
+                                    <Home size={30} style={{ color: 'white' }} />    
+                                 </DropdownToggle>
+                              </UncontrolledDropdown>
                            </Nav>
                         </Collapse>
                      </div>
-
-
                   </div>
                </div>
             </Navbar>
