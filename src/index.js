@@ -10,7 +10,6 @@ import Spinner from "./components/spinner/spinner";
 const LazyApp = lazy(() => import("./app/App"));
 
 ReactDOM.render(
-
    <Suspense fallback={<Spinner />}>
       <LazyApp />
    </Suspense>,

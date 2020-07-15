@@ -15,7 +15,8 @@ export default class GlobalStore extends React.Component {
     render() {
         return (
             <Contexts.Provider value={this.state.userDetails}>
-                {this.props.children}</Contexts.Provider>
+                {this.props.children}
+            </Contexts.Provider>
         );
     }
 }

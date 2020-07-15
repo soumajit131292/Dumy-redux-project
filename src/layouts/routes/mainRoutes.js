@@ -10,7 +10,9 @@ const MainLayoutRoute = ({ render, ...rest }) => {
       <Route
          {...rest}
          render={matchProps => (
-            <MainLayout>{render(matchProps)}</MainLayout>
+            <MainLayout>
+               {render(matchProps)}
+            </MainLayout>
          )}
       />
    );

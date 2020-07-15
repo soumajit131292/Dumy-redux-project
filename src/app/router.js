@@ -6,10 +6,11 @@ import Spinner from "../components/spinner/spinner";
 // import internal(own) modules
 import MainLayoutRoutes from "../layouts/routes/mainRoutes";
 import GlobalStore from '../context/globalStore'
-
+import  {LanguageStoreContext} from '../context/languageStore'
 
 const LazyDassDashboard = lazy(() => import("../components/dashboard/dashboard"))
 const LazyProfile = lazy(() => import("../components/user/userDetails"))
+const LazyLanguage = lazy (()=> import("../components/languageSelect/language"))
 
 class Router extends Component {
     render() {
@@ -44,6 +45,18 @@ class Router extends Component {
                                 </Suspense>
                             )}
                         />
+                       <LanguageStoreContext>
+                         <MainLayoutRoutes
+                            exact
+                            path="/language"
+                            render={matchprops => (
+                                <Suspense fallback={<Spinner />}>
+                                    <LazyLanguage {...matchprops} />
+                                </Suspense>
+                            )}
+                        />
+                       </LanguageStoreContext>
+
                     </Switch>
                 </BrowserRouter>
             </GlobalStore>

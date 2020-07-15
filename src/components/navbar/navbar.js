@@ -39,6 +39,10 @@ class ThemeNavbar extends Component {
    openDashboard =() =>{
       this.props.history.push('/dashboard')
    }
+   showLanguage =() =>{
+      this.props.history.push('/language')
+   }
+
    render() {
       var { userprofile } = this.props;
       const { showPro } = this.state;
@@ -63,6 +67,11 @@ class ThemeNavbar extends Component {
                      <div className="navbar-container-1">
                         <Collapse isOpen={this.state.isOpen} navbar>
                            <Nav className="ml-auto float-right" navbar style={{ margin: 0 }}>
+                           <UncontrolledDropdown nav inNavbar className="pr-1">
+                                 <DropdownToggle onClick={this.showLanguage} >
+                                    <Home size={30} style={{ color: 'white' }} />    
+                                 </DropdownToggle>
+                              </UncontrolledDropdown>
                               <UncontrolledDropdown nav inNavbar className="pr-1">
                                  <DropdownToggle nav onClick={this.openProfile} >
                                     <User size={30} style={{ color: 'white' }} />

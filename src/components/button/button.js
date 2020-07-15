@@ -6,7 +6,7 @@ class Button extends React.Component {
         return (
             <div>
                 <button type="submit" color="danger" block="true" className="btn-pink btn-raised" >
-                {this.context.language === 'English' ? 'Create  ' : 'Creëer  '}
+                {this.context.lan === 'English' ? 'Create  ' : 'Creëer  '}
                  </button>
             </div>
         );

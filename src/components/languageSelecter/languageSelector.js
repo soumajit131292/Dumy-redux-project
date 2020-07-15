@@ -5,7 +5,7 @@ import LanguageContext from '../../context/languageStore'
 class LanguageSelector extends React.Component {
     static contextType = LanguageContext
     render() {
-        console.log(this.context)
+        console.log(this.context.language);     
         return (
             <div>
                     <CardBody style={{ fontSize: '1.4rem' }}>

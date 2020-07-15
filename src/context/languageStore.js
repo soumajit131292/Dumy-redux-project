@@ -1,4 +1,5 @@
 import React from 'react'
+import store from 'store2';
 const LanguageContext = React.createContext()
 
 export class LanguageStoreContext extends React.Component {
@@ -9,11 +10,12 @@ export class LanguageStoreContext extends React.Component {
         this.setState({
             language
         })
+        store({lan: language})
     }
     render() {
         return (
             <div>
-                <LanguageContext.Provider value= {{...this.state , onLanguageChange : this.onLanguageChange }}>
+                <LanguageContext.Provider value= {{...store() , onLanguageChange : this.onLanguageChange }}>
                     {this.props.children}
                 </LanguageContext.Provider>
             </div>
